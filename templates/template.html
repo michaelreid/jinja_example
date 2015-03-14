@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Template Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      div#main {
+          max-width: 500px;
+          padding: 20px;
+      }
+
+      nav.title {
+          font-weight: bold;
+      }
+
+      a.active {
+          font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <p>My string: {{my_string}}</p>
+      <p>Value from the list: {{my_list[3]}}</p>
+      <p>Loop through list:</p>
+      <ul>
+	{% for n in my_list %}   <!-- no colon at end of for statement -->
+	<li>{{n}}</li>
+	{% endfor %}    <!-- and need to specify end of for block explicitly -->
+      </ul>
+    </div>
+  </body>
+</html>
