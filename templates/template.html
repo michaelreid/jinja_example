@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Flask Template Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      div#main {
-          max-width: 500px;
-          padding: 20px;
-      }
 
-      nav.title {
-          font-weight: bold;
-      }
+{% extends "base.html" %}
 
-      a.active {
-          font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="main">
+{% block content %}
+      <h3>This is the start of my child template.</h3>
+      <br>
       <p>My string: {{my_string}}</p>
       <p>Value from the list: {{my_list[3]}}</p>
       <p>Loop through list:</p>
-      <ul>
-	{% for n in my_list %}   <!-- no colon at end of for statement -->
+      <ul>  <!-- no colon at end of for statement -->
+	{% for n in my_list %}  
 	<li>{{n}}</li>
 	{% endfor %}    <!-- and need to specify end of for block explicitly -->
       </ul>
-    </div>
-  </body>
-</html>
+      <h3>This is the end of my child template.</h3>
+{% endblock %}      
+
+      {% block footer %}
+      {{super()}}  <!-- the super extends the block from the base, not override -->
+      ... and this addition to the footer is coming from the child template
+      {% endblock %}
+      
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Template Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      div#main {
+          max-width: 500px;
+          padding: 20px;
+      }
+      nav .title {
+          font-weight: bold;
+      }
+      a.active {
+          font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <span class="title">Jinja!</span>
+      <a href="#">Home</a> |
+      <a href="#">About</a> |
+      <a href="#">Contact Us</a>
+    </nav>
+    
+    <div id="main">
+      <h2>This is part of my base template</h2>
+      <br>
+      {% block content %}{% endblock %}  <!-- `block` defines an area that a child template completes -->
+      <br>
+      <h2>This is part of my base template</h2>
+    </div>
+
+    <footer>
+      {% block footer %}
+         Watch! This part of the footer is coming from the base template...
+         <br>
+	 <br>
+      {% endblock %}
+    </footer>
+  </body>
+</html>
+
+    
