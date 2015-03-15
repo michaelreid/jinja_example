@@ -12,12 +12,15 @@
 	<li>{{n}}</li>
 	{% endfor %}    <!-- and need to specify end of for block explicitly -->
       </ul>
+      <p>This is my list: {{ my_list }}</p>
+      <p>Same list with a filter: {{ my_list|join(', ') }}</p>
       <h3>This is the end of my child template.</h3>
+      <h4>Current date/time: {{ current_time | datetimefilter }}</h4>
 {% endblock %}      
 
-      {% block footer %}
-      {{super()}}  <!-- the super extends the block from the base, not override -->
-      ... and this addition to the footer is coming from the child template
-      {% endblock %}
+{% block footer %}
+{{super()}}  <!-- the super extends the block from the base, not override -->
+    ... and this addition to the footer is coming from the child template
+{% endblock %}
       
 
